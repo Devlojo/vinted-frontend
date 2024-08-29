@@ -8,6 +8,11 @@ import Header from "./Components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 
+/* MODAL */
+
+import Signup from "./modals/Signup";
+import Login from "./modals/Login";
+
 const App = () => {
   return (
     <>
@@ -16,6 +21,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offers/:id" element={<Offer />} />
+          <Route path="/user/signup" element={<Signup />} />
+          <Route path="/user/login" element={<Login />} />
         </Routes>
       </Router>
     </>
