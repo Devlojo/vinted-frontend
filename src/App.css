@@ -1,0 +1,169 @@
+:root {
+  --greenBlue: #2cb1ba;
+}
+
+/* GLOBALS */
+
+.container {
+  max-width: 1278px;
+  margin: 0 auto;
+}
+
+button {
+  border: 1px solid var(--greenBlue);
+  background-color: var(--greenBlue);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+article:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+/* HEADER */
+
+.header-container {
+  max-width: 1278px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  width: 350px;
+}
+
+.range-price {
+  width: 200px;
+}
+
+.header-button-container {
+  display: flex;
+  gap: 20px;
+}
+
+.header-button-container button {
+  border: 1px solid var(--greenBlue);
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: var(--greenBlue);
+}
+
+Header {
+  padding: 20px 0;
+}
+.top-logo {
+  width: 75px;
+}
+
+.header-image-container {
+  margin-top: 40px;
+  background-image: url("https://lereacteur-vinted.netlify.app/assets/hero-24963eb2.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 455px;
+  width: auto;
+  position: relative;
+}
+
+.header-image-effect {
+  position: absolute;
+  bottom: 0;
+}
+
+.home-image-box {
+  background-color: white;
+  width: 410px;
+  height: 271px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-left: 20px;
+  position: absolute;
+  top: 60px;
+}
+
+aside button {
+  padding: 20px;
+}
+
+/* OFFERS */
+
+.offers-container {
+  display: flex;
+
+  gap: 10px;
+}
+
+.offer-image {
+  width: 233px;
+  height: 358px;
+  object-fit: cover;
+}
+
+.product-image-details {
+  height: 600px;
+  width: 450px;
+  object-fit: cover;
+}
+.main {
+  height: auto;
+}
+
+.offer-container {
+  background-color: #ebedee;
+  padding: 30px;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.product-container {
+  background-color: white;
+  padding: 40px;
+  width: 400px;
+  height: 605px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-details {
+  padding: 30px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.product-details p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-bottom-container {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.product-container button {
+  padding: 10px;
+}
