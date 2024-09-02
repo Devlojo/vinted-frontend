@@ -1,16 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
 
-const Signup = () => {
+import axios from "axios";
+
+const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [newsletter, setNewsletter] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,18 +27,25 @@ const Signup = () => {
     setPassword(event.target.value);
   };
 
+  const handleNewsletter = (event) => {
+    setNewsletter(!newsletter);
+  };
+
   const fetchData = async () => {
     try {
-      const sendData = await axios.post(
+      const response = await axios.post(
         "https://site--backend-vinted--bf7zj7wtgltq.code.run/user/signup",
         {
           username: username,
           email: email,
           password: password,
+          newsletter: newsletter,
         }
       );
       // récupération du token du nouvel utilisateur qui va servir pendant l'authentification
-      Cookies.set("token", sendData.data.token);
+      handleToken(response.data.token);
+
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +74,7 @@ const Signup = () => {
               value={email}
             />
             <input
-              type="passsword"
+              type="password"
               name="password"
               id="password"
               placeholder="Mot de passe"
@@ -77,7 +82,12 @@ const Signup = () => {
               value={password}
             />
             <div className="checkbox-container">
-              <input type="checkbox" name="newsletter" id="newsletter" />
+              <input
+                type="checkbox"
+                name="newsletter"
+                id="newsletter"
+                onChange={handleNewsletter}
+              />
             </div>
             <button>S'inscrire</button>
             <Link to="/user/login">

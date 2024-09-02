@@ -1,15 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
 
-const Login = () => {
+import axios from "axios";
+
+const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(Cookies.get("token") || "");
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,17 +23,16 @@ const Login = () => {
 
   const fetchData = async () => {
     try {
-      const sendData = await axios.post(
+      const response = await axios.post(
         "https://site--backend-vinted--bf7zj7wtgltq.code.run/user/login",
         {
           email: email,
           password: password,
-          token: token,
         }
       );
-      if (sendData.data.token === token) {
-        console.log("connexion");
-      }
+
+      handleToken(response.data.token);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +53,7 @@ const Login = () => {
               value={email}
             />
             <input
-              type="passsword"
+              type="password"
               name="password"
               id="password"
               placeholder="Mot de passe"
