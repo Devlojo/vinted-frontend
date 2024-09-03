@@ -10,6 +10,7 @@ import Header from "./Components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import AddOffer from "./pages/AddOffer";
+import Payment from "./pages/Payment";
 
 /* MODAL */
 
@@ -19,7 +20,6 @@ import Login from "./modals/Login";
 const App = () => {
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [search, setSearch] = useState("");
-  const [username, setUsername] = useState("");
 
   // Cette fonction permet de stocker le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
@@ -40,7 +40,6 @@ const App = () => {
           token={token}
           search={search}
           setSearch={setSearch}
-          username={username}
         />
         <Routes>
           <Route path="/" element={<Home search={search} />} />
@@ -54,6 +53,7 @@ const App = () => {
             path="/user/login"
             element={<Login handleToken={handleToken} />}
           />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </Router>
     </>

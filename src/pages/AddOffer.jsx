@@ -1,6 +1,8 @@
 import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
+
 const AddOffer = ({ token }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -11,9 +13,10 @@ const AddOffer = ({ token }) => {
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
   const [exchange, setExchange] = useState("");
-  const [picture, setPicture] = useState({});
+  const [picture, setPicture] = useState(null);
 
-  const [cloudinaryPicture, setCloudinaryPicture] = useState({});
+  const navigate = useNavigate();
+  const [cloudinaryPicture, setCloudinaryPicture] = useState(null);
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
@@ -53,6 +56,7 @@ const AddOffer = ({ token }) => {
 
   const handlePicture = (event) => {
     setPicture(event.target.files[0]);
+    console.log(picture);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -84,11 +88,12 @@ const AddOffer = ({ token }) => {
       );
 
       console.log(response);
+      setCloudinaryPicture(response.data.product_image.secure_url);
     } catch (error) {
       console.log(error);
     }
   };
-  return (
+  return token ? (
     <>
       <main className="add-offer-container">
         <div className="container">
@@ -208,6 +213,8 @@ const AddOffer = ({ token }) => {
         </div>
       </main>
     </>
+  ) : (
+    <Navigate to={"/user/login"} />
   );
 };
 

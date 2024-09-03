@@ -32,6 +32,7 @@ const Login = ({ handleToken }) => {
       );
 
       handleToken(response.data.token);
+
       navigate("/");
     } catch (error) {
       console.log(error);

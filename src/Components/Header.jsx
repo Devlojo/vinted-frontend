@@ -3,7 +3,7 @@ import vintedLogo from "../assets/logo-vinted.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ token, handleToken, search, setSearch, username }) => {
+const Header = ({ token, handleToken, search, setSearch }) => {
   const navigate = useNavigate();
 
   const handleSearch = (event) => {
@@ -57,13 +57,9 @@ const Header = ({ token, handleToken, search, setSearch, username }) => {
             </>
           )}
         </div>
-        <button
-          onClick={() => {
-            navigate("/offer/publish");
-          }}
-        >
-          Vends tes articles
-        </button>
+        <Link to={"/offer/publish"}>
+          <button>Vends tes articles</button>
+        </Link>
       </div>
     </header>
   );

@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Offer = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,7 +71,14 @@ const Offer = () => {
 
           <p>{data.owner.account.username}</p>
         </div>
-        <button>Acheter</button>
+
+        <button
+          onClick={() => {
+            navigate("/payment");
+          }}
+        >
+          Acheter
+        </button>
       </aside>
     </main>
   );

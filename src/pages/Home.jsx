@@ -14,6 +14,7 @@ const Home = ({ search }) => {
           `https://site--backend-vinted--bf7zj7wtgltq.code.run/offers?title=${search}`
         );
         setData(response.data);
+
         setIsLoading(false);
       } catch (error) {
         console.log(error);
