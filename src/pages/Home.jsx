@@ -1,16 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import effectImage from "../assets/effect-image.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
-const Home = () => {
+const Home = ({ search }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://site--backend-vinted--bf7zj7wtgltq.code.run/offers"
+          `https://site--backend-vinted--bf7zj7wtgltq.code.run/offers?title=${search}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -20,7 +21,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
     <p>Loading ...</p>
@@ -31,7 +32,13 @@ const Home = () => {
         <div className="container">
           <aside className="home-image-box">
             <h1>Prêts à faire du tri dans vos placards ?</h1>
-            <button>Commencer à vendre</button>
+            <button
+              onClick={() => {
+                navigate("/offer/publish");
+              }}
+            >
+              Commencer à vendre
+            </button>
           </aside>
         </div>
       </div>

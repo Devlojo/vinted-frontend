@@ -43,7 +43,7 @@ const Login = ({ handleToken }) => {
       <div className="modal">
         <div className="form-container">
           <h2>Se connecter</h2>
-          <form onSubmit={handleSubmit}>
+          <form className="connexion-form" onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"

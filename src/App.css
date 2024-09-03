@@ -30,6 +30,11 @@ h2 {
   font-size: 26px;
 }
 
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 article:hover {
   cursor: pointer;
   opacity: 0.8;
@@ -58,6 +63,10 @@ article:hover {
 
 .search {
   width: 350px;
+  background-color: #f5f6f7;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
 }
 
 .range-price {
@@ -191,19 +200,69 @@ aside button {
   text-align: center;
 }
 
-form {
+.connexion-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-form input:not(:last-child) {
+.connexion-form input:not(:last-child) {
   width: 275px;
   border: none;
   border-bottom: 1px solid #fcced3;
   padding: 10px 0;
 }
 
-form button {
+.connexion-form button {
   padding: 10px;
+}
+
+/* ADD OFFER PAGE */
+
+.add-offer-container {
+  background-color: #ebedee;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.add-offer-form-title {
+  padding: 15px 0;
+}
+.input-container {
+  background-color: white;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.input-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+  border-bottom: 1px solid black;
+  align-items: center;
+}
+
+.input-items input {
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid black;
+  height: 30px;
+}
+
+.input-photo-container {
+  display: flex;
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 160px;
+}
+
+.submit-offer-add-container {
+  display: flex;
+  justify-content: flex-end;
 }

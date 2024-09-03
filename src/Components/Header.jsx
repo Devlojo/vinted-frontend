@@ -3,8 +3,12 @@ import vintedLogo from "../assets/logo-vinted.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ token, handleToken }) => {
+const Header = ({ token, handleToken, search, setSearch, username }) => {
   const navigate = useNavigate();
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
   return (
     <header>
       <div className="header-container">
@@ -15,6 +19,8 @@ const Header = ({ token, handleToken }) => {
           className="search"
           type="search"
           placeholder="Recherche des articles"
+          value={search}
+          onChange={handleSearch}
         />
         <span>Prix entre:</span>
         <input className="range-price" type="range" />
@@ -51,7 +57,13 @@ const Header = ({ token, handleToken }) => {
             </>
           )}
         </div>
-        <button>Vends tes articles</button>
+        <button
+          onClick={() => {
+            navigate("/offer/publish");
+          }}
+        >
+          Vends tes articles
+        </button>
       </div>
     </header>
   );

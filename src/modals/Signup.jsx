@@ -56,7 +56,7 @@ const Signup = ({ handleToken }) => {
       <div className="modal">
         <div className="form-container">
           <h2>S'inscrire</h2>
-          <form onSubmit={handleSubmit}>
+          <form className="connexion-form" onSubmit={handleSubmit}>
             <input
               type="text"
               name="username"

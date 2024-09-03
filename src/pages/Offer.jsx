@@ -64,9 +64,9 @@ const Offer = () => {
           );
         })}
         <div className="product-bottom-container">
-          <p>{data.product_name}</p>
+          <h3>{data.product_name}</h3>
           <p>{data.product_description}</p>
-          <p>{data.product_description}</p>
+
           <p>{data.owner.account.username}</p>
         </div>
         <button>Acheter</button>
